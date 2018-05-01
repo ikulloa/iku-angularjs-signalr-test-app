@@ -1,0 +1,40 @@
+﻿
+<section class="mainbar">
+    <section class="matter">
+        <div class="container">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="referenceNumber" data-ng-disabled="vm.mode==='edit'" data-ng-model="vm.order.referenceNumber" placeholder="Reference Number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="material" data-ng-model="vm.order.material" data-ng-disabled="vm.mode==='edit'" placeholder="Material">
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" id="cantidad" data-ng-model="vm.order.quantity" placeholder="Cantidad">
+                    </div>
+                </div>
+                <div class="form-group" data-ng-hide="vm.mode==='edit'">
+                    <div class="col-sm-6">
+                        <div class="">
+                            <label>
+                                <input type="checkbox" style="cursor: pointer;" data-ng-model="vm.order.priority" data-ng-true-value="0" data-ng-false-value="999"><label style="font-weight: normal !important">Top priority </label>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary " data-ng-click="vm.save(vm.order)">save</button>
+                        <a data-ng-href="#/dashboard" class="btn btn-default ">back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</section>

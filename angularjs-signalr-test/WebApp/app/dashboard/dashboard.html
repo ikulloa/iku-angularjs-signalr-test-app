@@ -1,0 +1,146 @@
+﻿<section id="dashboard-view" class="mainbar">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="today-datas">
+
+                        <li class="blightblue">
+                            <a data-ng-href="#/order/new">
+                                <div class="pull-left"><i class="fa fa-plus"></i></div>
+                                <div class="datas-text pull-right">
+                                    <span class="bold">Add</span>new order
+                                </div>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+
+                        <li class="borange">
+                            <div class="pull-left"><i class="fa fa-cart-plus"></i></div>
+                            <div class="datas-text pull-right">
+                                <span class="bold">{{vm.scheduledOrders.length}}</span> Scheduled
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+
+                        <li class="bblue">
+                            <div class="pull-left"><i class="fa fa-cart-arrow-down"></i></div>
+                            <div class="datas-text pull-right">
+                                <span class="bold">{{vm.ordersInProgress.length}}</span> In Progress
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+
+                        <li class="bgreen">
+                            <div class="pull-left"><i class="fa fa-thumbs-up"></i></div>
+                            <div class="datas-text pull-right">
+                                <span class="bold">{{vm.completedOrders.length}}</span> Completed
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="widget worange">
+                        <div data-cc-widget-header title="Scheduled"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th class="text-center">Ref. Number</th>
+                                        <th class="text-center">Material</th>
+                                        <th class="text-center">Quantity</th>
+                                        <th class="text-center">Created</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody data-ui-sortable="vm.sortableOptions" data-ng-model="vm.scheduledOrders">
+                                    <tr data-ng-repeat="p in vm.scheduledOrders track by $index" data-order-id="{{p.id}}">
+                                        <td><div class="drag-handle"><i class="fa fa-align-justify"></i></div></td>
+                                        <td>{{p.referenceNumber}}</td>
+                                        <td>{{p.material}}</td>
+                                        <td>{{p.quantity}}</td>
+                                        <td>{{p.creationDate | date:"dd/MM/yy HH:mm"}}</td>
+                                        <td><a data-ng-href="#/order/{{p.id}}/edit" title="Edit"><i class="fa fa-edit"></i></a></td>
+                                        <td><a ng-click="vm.cancelOrder(p)" title="Cancel"><i class="fa fa-trash"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="widget wblue">
+                        <div data-cc-widget-header title="In Progress"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <table class="table table-condensed table-striped table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Ref. Number</th>
+                                        <th class="text-center">Material</th>
+                                        <th class="text-center">Quantity</th>
+                                        <th class="text-center">Scheduled</th>
+                                        <th class="text-center">Started</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="p in vm.ordersInProgress track by $index">
+                                        <td>{{p.referenceNumber}}</td>
+                                        <td>{{p.material}}</td>
+                                        <td>{{p.quantity}}</td>
+                                        <td>{{p.creationDate | date:"dd/MM/yy HH:mm"}}</td>
+                                        <td>{{p.startedDate | date:"dd/MM/yy HH:mm"}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <div class="widget wgreen">
+                        <div data-cc-widget-header title="Completed"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Ref. Number</th>
+                                        <th class="text-center">Material</th>
+                                        <th class="text-center">Quantity</th>
+                                        <th class="text-center">Scheduled</th>
+                                        <th class="text-center">Completed</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="p in vm.completedOrders track by $index">
+                                        <td>{{p.referenceNumber}}</td>
+                                        <td>{{p.material}}</td>
+                                        <td>{{p.quantity}}</td>
+                                        <td>{{p.creationDate | date:"dd/MM/yy HH:mm"}}</td>
+                                        <td>{{p.completionDate | date:"dd/MM/yy HH:mm"}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
