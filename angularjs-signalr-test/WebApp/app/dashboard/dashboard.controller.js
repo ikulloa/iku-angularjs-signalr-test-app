@@ -81,10 +81,9 @@
         function configureSortable() {
             vm.sortableOptions = {
                 handle: '.drag-handle',
-                stop: function (event, element) {
-                    
+                axis: 'y',
+                stop: function (event, element) {               
                     var movedOrder = vm.scheduledOrders.find(item => item.id === parseInt(element.item.attr('data-order-id').toString()));
-                    console.log("Order: " + movedOrder);
                     datacontext.setOrdersPriority(vm.scheduledOrders).then(
                         function () { realtimeService.invoke('notifyPriorityChanged', function() {}, movedOrder); },
                         function (err) { console.error(err); }

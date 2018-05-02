@@ -11,6 +11,7 @@ namespace WebApp
                 "~/Scripts/jquery-3.3.1.js",
                 "~/Scripts/jquery.signalR-2.2.3.min.js",
                 "~/Scripts/jquery-ui.js",
+                "~/Scripts/jquery-ui-touch-punch.js",
                 "~/Scripts/angular.js",
                 "~/Scripts/angular-animate.js",
                 "~/Scripts/angular-route.js",
