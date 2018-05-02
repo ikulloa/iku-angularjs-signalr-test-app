@@ -61,7 +61,7 @@
                                     </tr>
                                 </thead>
                                 <tbody data-ui-sortable="vm.sortableOptions" data-ng-model="vm.scheduledOrders">
-                                    <tr data-ng-repeat="p in vm.scheduledOrders track by $index" data-order-id="{{p.id}}">
+                                    <tr data-ng-repeat="p in vm.scheduledOrders track by p.id" data-order-id="{{p.id}}">
                                         <td><div class="drag-handle"><i class="fa fa-align-justify"></i></div></td>
                                         <td>{{p.referenceNumber}}</td>
                                         <td>{{p.material}}</td>
